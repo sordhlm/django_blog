@@ -4,50 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} Venahome Blog {% endblock %}</title>
+    <title>{% block title %} Sorvena Blog {% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/pure-min.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/side-menu.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/pricing.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}"/>
-    
+
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
 </head>
 <body>
 <!--<a href="{% url "logout" %}" class="btn btn-primary btn-lg active" role="button" style="float:right">Logout</a>-->
+<div class="pure-menu pure-menu-horizontal">
+    <a href="#" class="pure-menu-heading">Your Logo</a>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
+        
+    </ul>
+    <a href="{% url "logout" %}" id="logout" target="_blank" class="pure-menu-link" style="float:right">Logout</a>
+    <a href="{% url "logout" %}" id="logout" target="_blank" class="pure-menu-link" style="float:right">Login</a>
+    
+</div> 
+<div class="banner"  style="background-image: url({% static 'image/sea.jpg' %})">
+    <h1 class="banner-head">
+        大智船长的小港<br>
+        
+    </h1>
+  
+</div>
 
-<div id="layout">
-    <!-- Menu toggle -->
-    <a href="#menu" id="menuLink" class="menu-link">
-        <!-- Hamburger icon -->
-        <span></span>
-    </a>
 
-    <div id="menu">
-        <div class="pure-menu">
-            <a class="pure-menu-heading" href="#">Company</a>
-
-            <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
-
-                <li class="pure-menu-item menu-item-divided pure-menu-selected">
-                    <a href="#" class="pure-menu-link">Services</a>
-                </li>
-
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
-            </ul>
-        </div>
-        <!--<a href="{% url "logout" %}" id="logout" target="_blank" style="float:right">Logout</a>-->
-    </div>
-
-    <div id="main">
-        <div class="content">
-            <div>
-                {% block content %}
-                {% endblock %}
-            </div>
+<div id="main">
+    <div class="content">
+        <div>
+            {% block content %}
+            {% endblock %}
         </div>
     </div>
 </div>
+
 
 <div class="go-top">
     <div class="arrow"></div>

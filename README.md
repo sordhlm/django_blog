@@ -2,7 +2,7 @@
 
 一个基于`python3.6`和`Django2.0`的博客。 
 
-A simple blog based on `python3.6` and `Django2.0`.
+A simple blog based on `python3.6` and `Django2.0`.(fork from jbt blog and change the layup)
 
 ## requirement
 - Django==2.0.3
@@ -12,33 +12,6 @@ A simple blog based on `python3.6` and `Django2.0`.
   
 ## Front page
 
-![1](http://jinbitou.net/wp-content/uploads/2018/03/2018031504572726.png)
-
-
-![2](http://jinbitou.net/wp-content/uploads/2018/03/2018031504572826.png)
-
----
-
-![3](http://jinbitou.net/wp-content/uploads/2018/03/2018031504572475.png)
-
-
----
-
-## Backend page
-![1](http://jinbitou.net/wp-content/uploads/2018/03/2018031504572953.png)
-
----
-
-![2](http://jinbitou.net/wp-content/uploads/2018/03/2018031504574323.png)
-
----
-![3](http://jinbitou.net/wp-content/uploads/2018/03/201803091037415.png)
-
----
-
-![4](http://jinbitou.net/wp-content/uploads/2018/03/201803091037396.png)
-
----
 
 ## Completed
 
@@ -72,11 +45,6 @@ A simple blog based on `python3.6` and `Django2.0`.
 
 ## TO-DO
 
-#### CN
-
-- 关键字搜索
-- 评论
-- 标签云
 
 #### EN
 

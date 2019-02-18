@@ -25,7 +25,12 @@ h3 {
     max-width: 100%;
     height: auto;
 }
+.baniframe {
+    width: 100%;
+    height: 300px;
+    border-width: 0px;
 
+}
 #login_form {
     background-color:transparent;
     position: absolute;
@@ -113,9 +118,14 @@ h3 {
     padding: 2em 1em 0;
 }
 
+.posts {
+    background-color:transparent;
+}
+
 .post {
     padding: 0.2em 2em 2em 2em;
     background: #FFFFFF;
+    background-color:transparent;
 }
 /*文章列表样式*/
 .post-container {
@@ -128,6 +138,8 @@ h3 {
     font-size: 2em;
     color: #47BAC1;
     margin-bottom: 0.5em;
+    background-color:transparent;
+    z-index: 99;
 }
 .button {
     margin: 0 0.1em;
@@ -198,7 +210,7 @@ h3 {
     .content {
         padding: 2em 3em 0;
         margin-left: 15%;
-        max-width: 1400px;
+        max-width: 70%;
     }
     .sidebar {
         position: fixed;
@@ -269,3 +281,4 @@ div.go-top div.stick {
     background: #303538 no-repeat center center;
     background-size: cover;
 }
+

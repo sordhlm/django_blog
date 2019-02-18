@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} Sorvena Blog {% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.css' %}"/>
+    
     <link rel="stylesheet" type="text/css" href="{% static 'css/pure-min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/pricing.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}"/>
 
     <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
+    <!--<script type="text/javascript" src="{% static 'js/nest.js' %}"></script>-->
+    <!--<script type="text/javascript" src="{% static 'js/box.js' %}"></script>-->
 </head>
 <body>
 <!--<a href="{% url "logout" %}" class="btn btn-primary btn-lg active" role="button" style="float:right">Logout</a>-->
@@ -26,14 +27,14 @@
     <a href="{% url "logout" %}" id="logout" target="_blank" class="pure-menu-link" style="float:right">Login</a>
     
 </div> 
-<div class="banner"  style="background-image: url({% static 'image/sea.jpg' %})">
-    <h1 class="banner-head">
-        大智船长的小港<br>
-        
-    </h1>
-  
-</div>
+<div class="banner">
 
+    <h1 class="banner-head">
+        大智船长的小港<br>  
+    </h1>
+    <iframe class="baniframe" sandbox="allow-scripts allow-same-origin" id="mh" src="{% static 'js/box.html' %}"></iframe>   
+
+</div>
 
 <div id="main">
     <div class="content">
@@ -44,12 +45,12 @@
     </div>
 </div>
 
-
 <div class="go-top">
     <div class="arrow"></div>
     <div class="stick"></div>
 </div>
 <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+
 <script>
     $(function () {
         $(window).scroll(function () {

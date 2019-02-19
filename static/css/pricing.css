@@ -3,7 +3,8 @@
  * Most of these are inherited from Base, but I want to change a few.
  */
 body {
-    color: #526066;
+    color: #ffffff;
+    background-color:#000000e6;
 }
 
 h2, h3 {

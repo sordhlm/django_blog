@@ -9,7 +9,7 @@
 
 a {
     text-decoration: none;
-    color: #47BAC1;
+    color: #E4FCF5;
 }
 a:hover,
 a:focus {
@@ -136,6 +136,7 @@ h3 {
     }
 .post-title {
     font-size: 2em;
+    /*color: #47BAC1;*/
     color: #47BAC1;
     margin-bottom: 0.5em;
     background-color:transparent;
@@ -155,7 +156,7 @@ h3 {
 }
 .post-description {
     font-family: Arial,sans-serif,Georgia, "Cambria";
-    color: #444;
+    color: #c3c3c3;
     line-height: 1.8em;
 }
 .post-meta {

@@ -16,23 +16,27 @@
 </head>
 <body>
 <!--<a href="{% url "logout" %}" class="btn btn-primary btn-lg active" role="button" style="float:right">Logout</a>-->
+<!--
 <div class="pure-menu pure-menu-horizontal">
     <a href="#" class="pure-menu-heading">Your Logo</a>
     <ul class="pure-menu-list">
         <li class="pure-menu-item"><a href="{% url "home" %}" class="pure-menu-link">Home</a></li>
         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
-        
     </ul>
     <a href="{% url "logout" %}" id="logout" target="_blank" class="pure-menu-link" style="float:right">Logout</a>
     <a href="{% url "logout" %}" id="logout" target="_blank" class="pure-menu-link" style="float:right">Login</a>
-    
 </div> 
+-->
 <div class="banner">
 
     <h1 class="banner-head">
         大智船长的小港<br>  
     </h1>
-    <iframe class="baniframe" sandbox="allow-scripts allow-same-origin" id="mh" src="{% static 'js/box.html' %}"></iframe>   
+    <ul class="menu_a" style="position: absolute;">
+        <a href="{% url "home" %}" id="top-link-home" class="menu-link">Home</a>
+        <a href="#" id="top-link-contact" class="menu-link">Contact</a>
+    </ul>
+    <iframe class="baniframe" sandbox="allow-scripts allow-same-origin" id="mh" src="{% static 'js/a6.html' %}"></iframe>   
 
 </div>
 

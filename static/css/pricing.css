@@ -4,7 +4,7 @@
  */
 body {
     color: #ffffff;
-    background-color:#597d80;
+    background-color:#081e20;
 }
 
 h2, h3 {
@@ -72,6 +72,7 @@ p {
     text-shadow: 0 1px 1px black;
     position: absolute;
     margin-left: 40%;
+    top:50px;
 }
 
 

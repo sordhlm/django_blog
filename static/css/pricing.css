@@ -4,7 +4,9 @@
  */
 body {
     color: #ffffff;
-    background-color:#040817;
+    /*background-color:#040817;*/
+    background:-moz-linear-gradient(left, #000, #01071d 50%, #000);
+
 }
 
 h2, h3 {

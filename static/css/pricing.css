@@ -6,6 +6,8 @@ body {
     color: #ffffff;
     /*background-color:#040817;*/
     background:-moz-linear-gradient(left, #000, #01071d 50%, #000);
+    /*background-image: -webkit-radial-gradient(ellipse farthest-corner at center top, #000d4d 0%, #000105 100%);
+    background-image: radial-gradient(ellipse farthest-corner at center top, #000d4d 0%, #000105 100%);*/
 
 }
 

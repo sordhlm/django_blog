@@ -37,6 +37,8 @@ urlpatterns = [
     path(r'summernote/', include('django_summernote.urls')),
     path(r'jet/', include('jet.urls', 'jet')),  # Django JET URLS
     path(r'jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+    path(r'image/upload', views.uploadImg, name='uploadImg'),
+    path(r'image/show', views.showImg, name='showImg'),
 ]
 
 if settings.DEBUG:

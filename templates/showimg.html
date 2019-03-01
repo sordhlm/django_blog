@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!--
+<button id="myBtn">打开弹窗</button>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Upload Image</p>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="img">
+        <input type="text" name="descript">
+        <button type="submit">上传</button>
+    </form>   
+    
+    
+  </div>
+ 
+</div>
+-->
+<button class="md-trigger" data-modal="modal-12">Just Me</button>
+<div class="md-container md-effect-12" id="modal-12">
+    <div class="md-content">
+        <h3>Image Uploading</h3>
+        <div>
+            <form method="POST" enctype="multipart/form-data" action="{% url 'uploadImg' %}">
+                {% csrf_token %}
+                <ul>
+                    <li>Image</li><input type="file" name="img">
+                    <li>Descript</li><input type="text" name="descript" style="color:black">
+                </ul>
+                <button type="submit" id="btn_upload">Upload</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="md-overlay"></div>
+<div class="image-container">
+    {% for img in imgs %}
+        <img src="{{ img.img.url }}" />
+    {% endfor %}
+</div>
+{% endblock %}

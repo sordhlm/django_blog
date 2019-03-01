@@ -12,11 +12,14 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.niftymodals.css' %}"/>
 
     <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.niftymodals.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
     <script src="{% static 'js/modernizr.js' %}"></script>
     <!--<script type="text/javascript" src="{% static 'js/nest.js' %}"></script>-->
-    <!--<script type="text/javascript" src="{% static 'js/box.js' %}"></script>-->
+    
 </head>
 <body>
 <!--<a href="{% url "logout" %}" class="btn btn-primary btn-lg active" role="button" style="float:right">Logout</a>-->
@@ -69,11 +72,10 @@
     </div>
     <nav class="outer-nav left vertical">
         <a href="{% url 'home' %}" class="icon-home">Home</a>
-        <a href="#" class="icon-image">Pictures</a>
+        <a href="{% url 'showImg' %}" class="icon-image">Pictures</a>
         <a href="#" class="icon-star">Favorites</a>
         <a href="#" class="icon-mail">Messages</a>
     </nav>
-<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'js/classie.js' %}"></script>
 <script src="{% static 'js/menu.js' %}"></script>
 

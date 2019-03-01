@@ -74,7 +74,18 @@ class Article(models.Model):
         db_table = 'article'  # 数据库表名
         get_latest_by = 'created_time'
 
+class Image(models.Model):
+    # upload_to 表示图像保存路径
+    img = models.ImageField(upload_to = 'image') 
+    name = models.CharField(max_length = 50)
+    description = models.TextField(blank=True)
+    created_time = models.DateTimeField(verbose_name='create_time', default=now)
 
+    class Meta:
+        db_table = "image" 
+
+    def __str__(self):
+        return self.name
 
 
 

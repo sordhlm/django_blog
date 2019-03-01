@@ -228,8 +228,8 @@ h3 {
 @media (min-width: 48em) {
     .content {
         padding: 2em 3em 0;
-        margin-left: 15%;
-        max-width: 70%;
+        margin-left: 18%;
+        max-width: 65%;
     }
     .sidebar {
         position: fixed;
@@ -301,3 +301,39 @@ div.go-top div.stick {
     background-size: cover;
 }
 
+
+/* 弹窗 (background) */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed; /* 固定定位 */
+    z-index: 1; /* 设置在顶层 */
+    left: 0;
+    top: 0;
+    width: 20%; 
+    height: 30%;
+    background-color: #fff; 
+    margin-left: 40%;
+    margin-top: 10%;
+}
+ 
+/* 弹窗内容 */
+.modal-content {
+    background-color: #014f6e;
+    padding: 0px;
+    border: 1px solid #888;
+}
+ 
+/* 关闭按钮 */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+ 
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

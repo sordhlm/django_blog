@@ -4,6 +4,9 @@
 
 A simple blog based on `python3.6` and `Django2.0`.(fork from jbt blog and change the layup)
 
+## Blog Address
+http://sorvena.com/
+
 ## requirement
 - Django==2.0.3
 - django-jet==1.0.7

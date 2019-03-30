@@ -1,4 +1,9 @@
 $(document).ready(function() {
+    var scroller = document.getElementById( 'cbp-so-scroller' );
+    if(scroller){
+        new cbpScroller(scroller);
+    }
+    
     // 获取弹窗
     var modal = document.getElementById('myModal');
      

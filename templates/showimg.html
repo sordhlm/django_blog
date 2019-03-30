@@ -1,25 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!--
-<button id="myBtn">打开弹窗</button>
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Upload Image</p>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input type="file" name="img">
-        <input type="text" name="descript">
-        <button type="submit">上传</button>
-    </form>   
-    
-    
-  </div>
- 
-</div>
--->
-<button class="md-trigger" data-modal="modal-12">Just Me</button>
+<a class="img_upload md-trigger icon-upload" data-modal="modal-12">Upload</a>
 <div class="md-container md-effect-12" id="modal-12">
     <div class="md-content">
         <h3>Image Uploading</h3>
@@ -37,8 +19,19 @@
 </div>
 <div class="md-overlay"></div>
 <div class="image-container">
-    {% for img in imgs %}
-        <img src="{{ img.img.url }}" />
-    {% endfor %}
+
+    <div id="cbp-so-scroller" class="cbp-so-scroller">
+        {% for img in imgs %}
+        <section class="cbp-so-section cbp-so-init">
+            <article class="cbp-so-side cbp-so-side-{% cycle 'left' 'right' %}">
+                <h2>{{img.name}}</h2>
+                <p>{{img.description}}</p>
+            </article>
+            <figure class="cbp-so-side cbp-so-side-{% cycle 'right' 'left' %}">
+                <img src="{{ img.img.url }}" alt="img01">
+            </figure>
+        </section>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

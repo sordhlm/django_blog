@@ -139,6 +139,8 @@ h3 {
 
 .posts {
     background-color:transparent;
+    margin-left: 18%;
+    width:65%;
 }
 
 .post {
@@ -228,8 +230,7 @@ h3 {
 @media (min-width: 48em) {
     .content {
         padding: 2em 3em 0;
-        margin-left: 18%;
-        max-width: 65%;
+        max-width: 100%;
     }
     .sidebar {
         position: fixed;
@@ -336,4 +337,11 @@ div.go-top div.stick {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.img_upload{
+    position:absolute;
+    z-index: 5555;
+    top: 250px;
+    right: 25px;
 }

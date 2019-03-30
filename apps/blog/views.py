@@ -1,3 +1,4 @@
+import re
 from django.shortcuts import render
 from apps.blog.models import Article, Category, Tag, Image
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
@@ -109,7 +110,7 @@ def uploadImg(request):
     if request.method == 'POST':
         new_img = Image(
             img = request.FILES.get('img'),
-            name = request.FILES.get('img').name,
+            name = re.sub('\.\w+', '', request.FILES.get('img').name),
             description = request.POST.get('descript')
         )
         new_img.save()

@@ -61,7 +61,6 @@ p {
 
     height: 300px;
     width: 100%;
-    margin-bottom: 3em;
     display: table;
 }
 
@@ -232,7 +231,7 @@ p {
  */
 @media (min-width: 480px) {
     .banner {
-        height: 400px;
+        height: 320px;
     }
     .banner-head {
         font-size: 3em;

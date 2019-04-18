@@ -134,7 +134,7 @@ h3 {
 }
 
 .content {
-    padding: 2em 1em 0;
+    padding: 0em 0em 0;
 }
 
 .posts {
@@ -176,7 +176,6 @@ h3 {
 }
 .post-description {
     font-family: Arial,sans-serif,Georgia, "Cambria";
-    color: #c3c3c3;
     line-height: 1.8em;
 }
 .post-meta {
@@ -229,7 +228,6 @@ h3 {
 
 @media (min-width: 48em) {
     .content {
-        padding: 2em 3em 0;
         max-width: 100%;
     }
     .sidebar {

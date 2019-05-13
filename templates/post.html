@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% block title %}
+    <meta name="keywords" content="{% for tag in tags %} {{tag}}, {% endfor %} {{ post.category }}">
+    <meta name="description" content="{{ post.content|striptags|truncatechars:100 }}">
+    <title>{{ post.title }}</title>
+{% endblock %}
 {% block content %}
     <div class="posts">
         <section class="post">

@@ -22,6 +22,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 from django.contrib.auth import views as contrib_auth_views
+from werobot.contrib.django import make_view
+from apps.blog.robot import robot
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
@@ -39,6 +41,7 @@ urlpatterns = [
     path(r'jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
     path(r'image/upload', views.uploadImg, name='uploadImg'),
     path(r'image/show', views.showImg, name='showImg'),
+    path(r'robot/',make_view(robot)),
 ]
 
 if settings.DEBUG:

@@ -5,7 +5,7 @@ case "$1" in
 start)
 echo "Start Kiwi Server"
 uwsgi --ini uwsgi.ini
-nginx -c /home/lhuang/01Git/kiwi_dev/nginx/nginx.conf
+nginx -c /home/ec2-user/00Git/django_blog/nginx/nginx.conf
 ;;
 stop)
 echo "Stop Kiwi Server"

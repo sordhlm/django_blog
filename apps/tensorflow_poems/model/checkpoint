@@ -1,0 +1,6 @@
+model_checkpoint_path: "/home/ec2-user/00Git/tensorflow_poems/model/poems-48"
+all_model_checkpoint_paths: "/home/ec2-user/00Git/tensorflow_poems/model/poems-24"
+all_model_checkpoint_paths: "/home/ec2-user/00Git/tensorflow_poems/model/poems-30"
+all_model_checkpoint_paths: "/home/ec2-user/00Git/tensorflow_poems/model/poems-36"
+all_model_checkpoint_paths: "/home/ec2-user/00Git/tensorflow_poems/model/poems-42"
+all_model_checkpoint_paths: "/home/ec2-user/00Git/tensorflow_poems/model/poems-48"

@@ -1,3 +1,4 @@
+#coding=utf8
 import aiml
 import os
 import re
@@ -5,23 +6,21 @@ import re
 
 class venaAI(object):
     def __init__(self):
+        cwd = os.getcwd()
+        self.aiml_path = cwd+'/apps/blog/lib/Py3kAiml/'
         self._load_brain()
     def _load_aiml(self):
         self.vena = aiml.Kernel()
-        cwd = os.getcwd()
-        aiml_path = cwd+'/lib/Py3kAiml/'
-        xml_file = aiml_path + 'std-startup.xml'
-        os.chdir(aiml_path)
+        xml_file = self.aiml_path + 'std-startup.xml'
+        os.chdir(self.aiml_path)
         self.vena.learn(xml_file)
         self.vena.respond('LOAD AIML B')
         os.chdir(cwd)
     def _load_brain(self):
         self.vena = aiml.Kernel()
-        cwd = os.getcwd()
-        aiml_path = cwd+'/lib/Py3kAiml/'
-        xml_file = aiml_path + 'std-startup.xml'
-        brn_file = aiml_path + 'brain.brn'
-        #os.chdir(aiml_path)
+        xml_file = self.aiml_path + 'std-startup.xml'
+        brn_file = self.aiml_path + 'brain.brn'
+        #os.chdir(self.aiml_path)
         if os.path.isfile(brn_file):
             self.vena.bootstrap(brainFile = brn_file)
         else:
@@ -42,7 +41,6 @@ if __name__ == "__main__":
     #    my_friend = bot.friends().search('幸运的大娜')[0]
     #    @bot.register()
     #    def just_print(msg):
-    #打印消息
     #        print(msg)
     #        if 'turn on' in msg.text:
     #            print ('get turn on light cmd')

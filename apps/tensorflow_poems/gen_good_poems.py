@@ -26,7 +26,7 @@ class GoodPoem(Poem):
         super(GoodPoem, self).__init__(s_word)
         self.format = format
         time = datetime.datetime.today().strftime('%Y%m%d_%H%M%S')
-        self.output = 'ai_poems_'+time+'.txt'
+        #self.output = 'ai_poems_'+time+'.txt'
         self.good_tone_th = thrd
 
     def gen_poem_manual(self):
@@ -41,8 +41,8 @@ class GoodPoem(Poem):
             if self.is_good_format(poem):
                 print("Good Poem ...")
                 print(poem)
-                with open(self.output, 'a+') as fp:
-                    fp.write(poem+"\n")
+                #with open(self.output, 'a+') as fp:
+                #    fp.write(poem+"\n")
                 i += 1
                 poems.append(poem)
         return poems
@@ -146,15 +146,22 @@ class PoemGenerator(threading.Thread):
 class PoemPool(object):
     def __init__(self):
         self.thread_pool = {}
+        self.cfg = {}
 
     def _get_unique_key(self):
         pass
 
-    def add_generator(self, user, init_char, p_type, thrd):
+    def add(self, user, init_char, p_type, thrd):
         if (user in self.thread_pool.keys()):
             if self.thread_pool[user].isAlive():
                 return "You have already started generating Poem!"
+        self.cfg[user] = {}
         self.thread_pool[user] = PoemGenerator(init_char, p_type, thrd)
+        return ("adding Poem!")
+
+    def gen(self, user):
+        if (user not in self.thread_pool.keys()):
+            return "Please init first"
         self.thread_pool[user].start()
         return ("Start generating Poem!")
 

@@ -3,6 +3,37 @@ from django.utils.timezone import now
 
 
 # Create your models here.
+class User(models.Model):
+    id = models.AutoField(db_column='uid', primary_key=True)
+    source = models.CharField(verbose_name='source id', max_length=256)
+    name = models.CharField(verbose_name='source id', max_length=256, default="")
+    description = models.TextField(blank=True)
+    mode = models.IntegerField(db_column='mode', default=0)#0: default; 1: chat; 2: poem_type; 3: poem_init; 4: poem_create
+    thrd = models.IntegerField(db_column='threshold', default=12)
+    ptype = models.CharField(max_length=16, default='5jue')
+    pinit = models.CharField(max_length=256, default="")
+    # 使对象在后台显示更友好
+    def __str__(self):
+        return self.source
+
+    class Meta:
+        unique_together = ('source')
+        verbose_name_plural = 'source id'  # 指定后台显示模型复数名称
+
+class Poem(models.Model):
+    id = models.AutoField(db_column='id', primary_key=True)
+    user = models.ForeignKey(User, related_name='poem', on_delete=models.CASCADE)
+    content = models.CharField(max_length=512)
+    description = models.TextField(blank=True)
+
+    # 使对象在后台显示更友好
+    def __str__(self):
+        return self.content
+
+    class Meta:
+        unique_together = ('content')
+
+# Create your models here.
 class Tag(models.Model):
     name = models.CharField(verbose_name='标签名', max_length=64)
     created_time = models.DateTimeField(verbose_name='创建时间', default=now)
@@ -76,13 +107,13 @@ class Article(models.Model):
 
 class Image(models.Model):
     # upload_to 表示图像保存路径
-    img = models.ImageField(upload_to = 'image') 
+    img = models.ImageField(upload_to = 'image')
     name = models.CharField(max_length = 50)
     description = models.TextField(blank=True)
     created_time = models.DateTimeField(verbose_name='create_time', default=now)
 
     class Meta:
-        db_table = "image" 
+        db_table = "image"
 
     def __str__(self):
         return self.name

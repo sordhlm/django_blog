@@ -47,10 +47,10 @@ robot = WeRoBot(enable_session=False,
 #poem = PoemPool()
 #vena = venaAI()
 #
-#@robot.subscribe
-#def subscribe(message):
-#    User.objects.create(source=message.source)
-#    return '欢迎关注本公众号！'
+@robot.subscribe
+def subscribe(message):
+    User.objects.create(source=message.source)
+    return '欢迎关注本公众号！'
 #
 #@robot.key_click("poem_ptype")
 #def poem_init(message):
@@ -95,7 +95,7 @@ robot = WeRoBot(enable_session=False,
 def text_handle(message):
     cont = message.content
     source = message.source
-    user = User.objects.get(source=source)
+    user = User.objects.get_or_create(source=source)
     mode = user.mode
     if cont == 'leave':
         ret = User.room_choose(user, 1)

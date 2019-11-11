@@ -1,5 +1,6 @@
 #coding=utf8
 import time
+import re
 from werobot import WeRoBot
 from apps.blog.venaAI import venaAI
 from apps.tensorflow_poems.gen_good_poems import PoemPool
@@ -9,6 +10,8 @@ robot = WeRoBot(enable_session=False,
                 token='ilovemuyao',
                 APP_ID='wx1bad78267ac404dc',
                 APP_SECRET='fb8162c70f72ddb2c1ceeff0d35e3567')
+poem = PoemPool()
+vena = venaAI()
 #client = robot.client
 #client.create_menu({
 #    "button":[
@@ -44,8 +47,6 @@ robot = WeRoBot(enable_session=False,
 #            ]
 #        }]
 #})
-#poem = PoemPool()
-#vena = venaAI()
 #
 @robot.subscribe
 def subscribe(message):
@@ -93,21 +94,26 @@ def subscribe(message):
 
 @robot.text
 def text_handle(message):
-    cont = message.content
+    cont = message.content.lower()
     source = message.source
-    user = User.objects.get_or_create(source=source)
+    user = User.objects.get_or_create(source=source)[0]
     mode = user.mode
-    if cont == 'leave':
+    print(cont+" end")
+    print("mode: %d"%mode)
+    print(re.match(r'leave', cont))
+    if re.match(r'leave', cont):
+        print("leaving the room")
         ret = User.room_choose(user, 1)
+        return ret
     if mode == 0: #guest is at front door
         ret = User.room_choose(user, 1)
     elif mode == 1: # guest is choosing which room
-        if cont == "0":
-            ret = User.enter_char(user ,2)
-        elif cont == "1":
+        if cont == "1":
+            ret = User.enter_chat(user ,2)
+        elif cont == "0":
             ret = User.enter_poem(user ,3)
         else:
-            ret = r"Not supported room!\n"
+            ret = "Not supported room!\n"
             ret += User.room_choose(user, 1)
     elif mode == 2:
         print("input: %s"%cont)
@@ -120,23 +126,23 @@ def text_handle(message):
             ret = User.cfg_poem_type(user, '7jue', 4)
         elif cont == "2":
             poem.add(user.source, user.pinit, user.ptype, user.thrd)
-            ret = poem.gen(message.content)
+            ret = poem.gen(user.source)
+            ret = User.start_poem(user, 5)
         else:
-            ret = "not supported poem type!"
+            ret = "not supported poem type!\n"
             ret += User.enter_poem(user ,3)
         return ret
     elif mode == 4:
-        user.mode = 5
         user.pinit = cont
-        user.save()
+        User.start_poem(user, 5)
         ret = "poem init text is: %s"%cont
         poem.add(user.source, user.pinit, user.ptype, user.thrd)
-        ret = poem.gen(user.content)
+        ret = poem.gen(user.source)
     elif mode == 5:
         ret = poem.get_result(user.source)
         if ret:
             ret = ret[0]
-            ret += r'\n' + User.enter_poem(user ,3)
+            User.enter_poem(user ,3)
         else:
             ret = "poems is on-generating, please wait..."
 

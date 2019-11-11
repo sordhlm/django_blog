@@ -24,21 +24,21 @@ class User(models.Model):
     def room_choose(cls, user, mode=1):
         user.mode = mode
         user.save()
-        return r"请从选择你要进入的木屋哪个房间:\n 0)草庐弄诗；\n 1）茶室外话"
+        return "请从选择你要进入的木屋哪个房间:\n0) 草庐弄诗\n1) 茶室外话"
 
     @classmethod
     def enter_chat(cls, user, mode=2, out='leave'):
         user.mode = mode
         user.save()
-        ret = r"欢迎进入茶室，你可以和Vena英语对话啦，请输入'%s'离开房间"%out
+        ret = "欢迎进入茶室，你可以和Vena英语对话啦，请输入'%s'离开房间"%out
         return ret
 
     @classmethod
     def enter_poem(cls, user, mode=3, out='leave'):
         user.mode = mode
         user.save()
-        ret = r"欢迎进入草庐，你可以作诗啦， 请输入'%s'离开房间"%out
-        ret += r"请从选择诗的类型:\n 0）五绝\n 1）七绝\n2）直接开始"
+        ret = "欢迎进入草庐，你可以作诗啦， 请输入'%s'离开房间\n"%out
+        ret += "请从选择诗的类型:\n0) 五绝\n1) 七绝\n2) 直接开始"
         return ret
 
     @classmethod
@@ -46,9 +46,15 @@ class User(models.Model):
         user.mode = mode
         user.ptype = ptype
         user.save()
-        ret = r"poem type is 七绝\n"
+        ret = "poem type is 七绝\n"
         ret += r"请输入你的底稿，用？代替你想Vena帮你生成的内容，或者输入'go'直接开始"
         return ret
+
+    @classmethod
+    def start_poem(cls, user, mode=5):
+        user.mode = mode
+        user.save()
+        return "start poem"
 
 class Poem(models.Model):
     id = models.AutoField(db_column='id', primary_key=True)

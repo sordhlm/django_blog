@@ -29,6 +29,36 @@
                     {{ post.content |safe }}
                 </p>
             </div>
+            <div>
+            <form action="{% url 'post_comment' id=post.id %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="body" style="width:5%">
+                        <strong>
+                            我也要发言：
+                        </strong>
+                    </label>
+                    <textarea type="text" class="form-control" id="body" name="body" rows="2" style="width:90%; height:25px;color:black"></textarea>
+                </div>
+                <!-- 提交按钮 -->
+                <button type="submit" class="btn btn-primary ">发送</button>                    
+            </form>
+            </div>
+            <h4>共有{{ comments.count }}条评论</h4>
+            <div>
+                {% for comment in comments %}
+                    <hr>
+                    <p>
+                        <strong style="color: pink">
+                            {{ comment.user }}
+                        </strong> 于 
+                        <span style="color: green">
+                            {{ comment.created|date:"Y-m-d H:i:s" }}
+                        </span> 时说：
+                    </p>
+                    <pre style="font-family: inherit; font-size: 1em;">{{ comment.body }}</pre>
+                {% endfor %}
+            </div>
         </section>
     </div><!-- /.blog-post -->
     <!-- 上下篇文章切换 -->

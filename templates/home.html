@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <div class="posts">
+    <div class="posts" style="z-index:5555">
         {% for post in post_list %}
             <div class="post-container">
                 <section class="post">
@@ -25,7 +25,6 @@
                         </p>
                     </div>
                     <div>
-
                         <a class="button" href="{% url 'detail' id=post.id %}"
                            style="text-decoration: none">阅读全文</a>
                     </div>

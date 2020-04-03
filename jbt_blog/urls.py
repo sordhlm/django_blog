@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, reverse_lazy
 from apps.blog import views
+from apps.comment import views as comment_view
 from django.conf.urls import include
 from django.conf.urls import url
 from django.conf import settings
@@ -29,6 +30,7 @@ urlpatterns = [
     path(r'admin/', admin.site.urls),
     path(r'', views.home, name='home'),
     path(r'home/', views.home, name='home'),
+    path(r'articles/', views.articles, name='articles'),
     path(r'accounts/login/', contrib_auth_views.login,{'template_name':'login.html', 'extra_context':{'next':'/'}}, name='login'),
     path(r'accounts/logout/', contrib_auth_views.LogoutView.as_view(next_page=reverse_lazy('login')),
         name='logout'),
@@ -41,6 +43,7 @@ urlpatterns = [
     path(r'jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
     path(r'image/upload', views.uploadImg, name='uploadImg'),
     path(r'image/show', views.showImg, name='showImg'),
+    path(r'post-comment/<int:id>/', comment_view.post_comment, name='post_comment'),
     path(r'robot/',make_view(robot)),
 ]
 

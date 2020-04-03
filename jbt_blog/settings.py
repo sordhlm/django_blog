@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1ek)3z+-*)(&1c&3fv=2*=lr_cyst85w&a4y#5!2m*ik@=&!p0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'sorvena.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'sorvena.com', '172.29.131.69']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.comment',
     'apps.blog',
     'django_summernote',
 ]
@@ -127,6 +128,8 @@ if DEBUG:
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+if os.path.exists('/djano_blog/node_modules'):
+    STATICFILES_DIRS.append('/Kiwi/node_modules')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

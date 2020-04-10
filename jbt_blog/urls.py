@@ -31,7 +31,7 @@ urlpatterns = [
     path(r'', views.home, name='home'),
     path(r'home/', views.home, name='home'),
     path(r'articles/', views.articles, name='articles'),
-    path(r'accounts/login/', contrib_auth_views.login,{'template_name':'login.html', 'extra_context':{'next':'/'}}, name='login'),
+    path(r'accounts/login/', contrib_auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path(r'accounts/logout/', contrib_auth_views.LogoutView.as_view(next_page=reverse_lazy('login')),
         name='logout'),
     path(r'articles/<int:id>/', views.detail, name='detail'),

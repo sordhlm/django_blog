@@ -24,7 +24,7 @@ SECRET_KEY = '1ek)3z+-*)(&1c&3fv=2*=lr_cyst85w&a4y#5!2m*ik@=&!p0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'sorvena.com', '172.29.131.69']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -120,19 +120,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+STATIC_ROOT = '/blog/static/'
 STATIC_URL = '/static/'
 if DEBUG:
     STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'static'),
     ]
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 if os.path.exists('/djano_blog/node_modules'):
     STATICFILES_DIRS.append('/Kiwi/node_modules')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = '/blog/media/'
 
 # Auth Setting
 LOGIN_REDIRECT_URL  = 'home'

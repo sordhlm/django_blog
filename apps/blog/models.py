@@ -43,12 +43,16 @@ class User(models.Model):
         return ret
 
     @classmethod
-    def cfg_poem_type(cls, user, ptype, mode=4):
+    def cfg_poem_type(cls, user, ptype, mode=4, out='leave'):
         user.mode = mode
         user.ptype = ptype
         user.save()
-        ret = "poem type is 七绝\n"
-        ret += r"请输入你的底稿，用？代替你想Vena帮你生成的内容，或者输入'go'直接开始"
+        if '5jue' in ptype:
+            ret = "当前是五绝\n"
+        elif '7jue' in ptype:
+            ret = "当前是七绝\n"
+        ret += r"请输入你的底稿，用？代替你想Vena帮你生成的内容，或者输入'go'直接开始\n"
+        ret += "或者输入'%s'回到入口"%out
         return ret
 
     @classmethod

@@ -45,6 +45,7 @@ urlpatterns = [
     path(r'image/show', views.showImg, name='showImg'),
     path(r'post-comment/<int:id>/', comment_view.post_comment, name='post_comment'),
     path(r'robot/',make_view(robot)),
+    path(r'mdeditor/', include('mdeditor.urls')),
 ]
 
 if settings.DEBUG:

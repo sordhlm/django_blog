@@ -1,4 +1,5 @@
 import re
+import markdown
 from django.shortcuts import render
 from apps.blog.models import Article, Category, Tag, Image
 from apps.comment.models import Comment
@@ -41,6 +42,12 @@ def detail(request, id):
         tags = post.tags.all()
         next_post = post.next_article()  # 上一篇文章对象
         prev_post = post.prev_article()  # 下一篇文章对象
+        post.content = markdown.markdown(post.content,
+                                  extensions=[
+                                     'markdown.extensions.extra',
+                                     'markdown.extensions.codehilite',
+                                     'markdown.extensions.toc',
+                                  ])
     except Article.DoesNotExist:
         raise Http404
     return render(

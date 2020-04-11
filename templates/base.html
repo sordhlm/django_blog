@@ -7,19 +7,26 @@
     {% block title %} 
     <title>Sorvena Blog</title>
     {% endblock %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/pure-min.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/pricing.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.niftymodals.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/pure-min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/pricing.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/component.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/jquery.niftymodals.css' %}"/>
+    <link rel="stylesheet" href="{% static 'mdeditor/css/editormd.preview.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/default.css' %}"/>
+    
+    <!--引入js文件-->
+
 
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/jquery.niftymodals.js' %}"></script>
     <script src="{% static 'js/blog.js' %}"></script>
     <script src="{% static 'js/cbpScroller.js' %}"></script>
     <script src="{% static 'js/modernizr.js' %}"></script>
+    <script src="{% static 'mdeditor/js/lib/marked.min.js' %}"></script>
+    <script src="{% static 'mdeditor/js/editormd.js' %}"></script>
     <!--<script type="text/javascript" src="{% static 'js/nest.js' %}"></script>-->
     
 </head>
@@ -96,6 +103,10 @@
             $('html, body').animate({scrollTop: 0}, 500);
         });
     });
+    //editormd.markdownToHTML("article_content", { //article_content是html文档的ID
+    //    emoji: true,
+    //    taskList: true,
+    //});
 </script>
 </body>
 </html>

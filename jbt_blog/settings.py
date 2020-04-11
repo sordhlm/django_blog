@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'apps.comment',
     'apps.blog',
     'django_summernote',
+    'mdeditor',
 ]
 
 MIDDLEWARE = [
@@ -126,12 +127,16 @@ if DEBUG:
     STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'static'),
     ]
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/')
+else:
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = '/blog/media/'
+
 
 if os.path.exists('/djano_blog/node_modules'):
     STATICFILES_DIRS.append('/Kiwi/node_modules')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = '/blog/media/'
 
 # Auth Setting
 LOGIN_REDIRECT_URL  = 'home'

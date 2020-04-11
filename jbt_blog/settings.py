@@ -127,11 +127,10 @@ if DEBUG:
     STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'static'),
     ]
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/')
-else:
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = '/blog/media/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/')
+
 
 
 if os.path.exists('/djano_blog/node_modules'):

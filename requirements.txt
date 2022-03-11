@@ -2,7 +2,7 @@ Django==2.1.5
 django-jet==1.0.7
 django-summernote==0.8.8.6
 pytz==2018.3
-Pillow==5.4.1
+Pillow==9.0.1
 tensorflow==1.2.0
 python-aiml==0.9.3
 pypinyin==0.35.4

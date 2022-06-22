@@ -6,6 +6,6 @@ Pillow==5.4.1
 tensorflow==1.2.0
 python-aiml==0.9.3
 pypinyin==0.35.4
-numpy==1.17.3
+numpy==1.22.0
 Markdown==2.2.0
 werobot
